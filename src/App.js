@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import images from './images1.jpg'
 import './App.css'
-import {axios, axiosPublic} from './configs/axios'
+import { axiosPublic } from './configs/axios'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './pages/Login';
 
 class App extends Component {
   constructor(props) {
@@ -24,22 +26,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header className="App-header">
-        <img src={ images } className="App-logo" alt="logo" />
-        <p>
-          Bita xin chào các bạn ahihi :v
-        </p>
-        <a className="App-link" href="http://localhost:1337/restaurants" target="_blank" rel="noopener noreferrer">Link API</a>
-        <br></br>
-        <button onClick={this.getRestaurant}>Hiển thị API</button>
-        <ul>
-          {
-            this.state.restaurants.map(restaurants => {
-            return <p key={restaurants.id}>ID: {restaurants.id} <br></br> Name: {restaurants.name} <br></br> Description: {restaurants.description}</p>
-            })
-          }
-        </ul>
-      </header>
+        
+        <Login/>
+
       </div>
     )
   }
