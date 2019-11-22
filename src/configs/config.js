@@ -1,3 +1,3 @@
-const URI = `http://localhost:1337`
+const URI = `http://localhost:3000`
 
 export { URI } 

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import tokenReducer from './tokenReducer'
+import loginReducer from './loginReducer'
 
 var rootReducer = combineReducers({
-    token : tokenReducer
+    loginReducer //state of redux
 })
 
 
