@@ -1,13 +1,16 @@
 
 
 const defaultState = {
-    token: ""
+    token:"",
+    username:""
 }
 
 var loginReducer = (state = defaultState, action)=>{
     switch(action.type){
         case 'LOGIN': 
-            state.token = action.data;
+            state.username = action.data.user.username;
+            state.token = action.data.token
+        
             console.log(state)
         return { ...state } ;
 

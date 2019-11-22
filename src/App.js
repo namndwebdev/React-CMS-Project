@@ -4,6 +4,8 @@ import './App.css'
 import { axiosPublic } from './configs/axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/Login';
+import Header from './pages/home/Header'
+import Footer from './pages/home/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -25,10 +27,22 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        
-        <Login/>
+      <div id="page-top" data-spy="scroll" data-target=".navbar">
+        <div id="main-wrapper">
+          <div id="preloader">
+            <div id="status">
+              <div className="status-mes"></div>
+            </div>
+          </div>
+          <div className="uc-mobile-menu-pusher">
+            <div className="content-wrapper">
+              <Header />
 
+              <Footer/>
+
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

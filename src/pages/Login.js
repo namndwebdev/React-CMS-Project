@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import Button from '../component/Button'
 import { connect } from 'react-redux'
 import { axiosPublic } from '../configs/axios'
 
@@ -9,9 +9,9 @@ class LoginPage extends Component {
 		super(props);
 		this.state = {
 			email: '',
-			password: ''
+			password: '',
 		}
-
+		
 	}
 
 	onGetValue = event => {
@@ -39,7 +39,7 @@ class LoginPage extends Component {
 		const { email, password } = this.state
 
 		return (
-			<div>
+			<div className = 'loginBar'>
 				<form onSubmit={this.onLogin}>
 					<input
 						type="text"
@@ -57,13 +57,15 @@ class LoginPage extends Component {
 						onChange={this.onGetValue}
 
 					/>
+				<Button
+				title='Login'
+					type='submit'
+					onSubmit={this.onLogin}
+				/>
+				
+		<p>{this.props.user.username}</p>
+		
 
-					<button
-						type='submit'
-						onSubmit={this.onLogin}
-					>
-						Login
-					</button>
 
 				</form>
 
@@ -82,7 +84,7 @@ let setCookie = (cname, cvalue, exdays) => {
 
 const mapStateToProps = rootReducerState => {
 	return {
-		
+		user: rootReducerState.loginReducer
 	}
 }
 
@@ -105,7 +107,7 @@ const mapDispatchToProps = (dispatch, props) => {
 					
 					dispatch({
 						type: "LOGIN",
-						data: data.data.token
+						data: data.data
 					});
 
 				}
