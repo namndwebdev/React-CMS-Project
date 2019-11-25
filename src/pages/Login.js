@@ -1,44 +1,44 @@
-import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class LoginPage extends Component {
-
-
-
-    render() {
-
-        return (
-            <div>
-                <Button onClick={() => {
-                    alert('aa')
-                    this.props.setToken('abc')
-                }}>Change</Button>
-
-            <p>{this.props.token}</p>
+  render() {
+    return (
+      <div className="row container">
+        <form className="col s12">
+        <div className="row">
+            <div className="input-field col s12">
+              <input id="email" type="email" className="validate"></input>
+              <label htmlFor="email">Email</label>
             </div>
-        );
-    }
+          </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <input id="password" type="password" className="validate"></input>
+              <label htmlFor="password">Password</label>
+            </div>
+          </div>
+          <button className="waves-effect waves-red btn-large">Login</button>
+        </form>
+      </div>
+    );
+  }
 }
-const mapStateToProps = rootReducerState=>{
-    return {
-        token: rootReducerState.token
+const mapStateToProps = rootReducerState => {
+  return {
+    money: rootReducerState.data.money
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setToken: function(giatri) {
+      dispatch({
+        type: "SET_TOKEN",
+        money: giatri
+      });
     }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setToken: function (giatri) {
-            dispatch({
-                type: 'SET_TOKEN',
-                newToken: giatri
-            })
-        }
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(LoginPage)
-
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

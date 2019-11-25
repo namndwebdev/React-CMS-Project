@@ -1,36 +1,22 @@
-import React, { Component } from 'react'
-import images from './images1.jpg'
-import './App.css'
-import { axiosPublic } from './configs/axios'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './pages/Login';
+import React, { Component } from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from './pages/Navbar'
+import Footer from './pages/Footer'
 
+import '../node_modules/materialize-css/dist/css/materialize.min.css'
+import '../node_modules/materialize-css/dist/js/materialize.min.js'
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      restaurants: []
-    }
-  }
-
-  getRestaurant = async () => {
-    try {
-      const res = await axiosPublic.get(`/restaurants`)
-      const restaurants = res.data
-      this.setState({ restaurants })
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   render() {
     return (
       <div>
-        
-        <Login/>
-
+        <Navbar />
+        <hr></hr>
+        <Footer />
+        <hr></hr>
       </div>
-    )
+    );
   }
 }
 
