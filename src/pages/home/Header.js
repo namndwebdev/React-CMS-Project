@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Header.css'
 import Login from '../Login'
+// import Register from '../../component/Register'
+import CKEditor from '../../component/CKEditor'
 export default class Header extends Component {
     render() {
         return (
@@ -88,45 +90,10 @@ export default class Header extends Component {
                                             <li><a href="blog.html">Gadgets</a></li>
                                             <li><a href="blog.html">Camera</a></li>
                                             <li><a href="blog.html">Design</a></li>
-                                            <li className="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" className="dropdown-toggle">More
+                                            <li className="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" className="dropdown-toggle"> + News
                                 <span><i className="fa fa-angle-down"></i></span></a>
                                                 <ul className="dropdown-menu">
-                                                    <li>
-                                                        <div className="m-menu-content">
-                                                            <ul className="col-sm-3">
-                                                                <li className="dropdown-header">Widget Haeder</li>
-                                                                <li><a href="#">Awesome Features</a></li>
-                                                                <li><a href="#">Clean Interface</a></li>
-                                                                <li><a href="#">Available Possibilities</a></li>
-                                                                <li><a href="#">Responsive Design</a></li>
-                                                                <li><a href="#">Pixel Perfect Graphics</a></li>
-                                                            </ul>
-                                                            <ul className="col-sm-3">
-                                                                <li className="dropdown-header">Widget Haeder</li>
-                                                                <li><a href="#">Awesome Features</a></li>
-                                                                <li><a href="#">Clean Interface</a></li>
-                                                                <li><a href="#">Available Possibilities</a></li>
-                                                                <li><a href="#">Responsive Design</a></li>
-                                                                <li><a href="#">Pixel Perfect Graphics</a></li>
-                                                            </ul>
-                                                            <ul className="col-sm-3">
-                                                                <li className="dropdown-header">Widget Haeder</li>
-                                                                <li><a href="#">Awesome Features</a></li>
-                                                                <li><a href="#">Clean Interface</a></li>
-                                                                <li><a href="#">Available Possibilities</a></li>
-                                                                <li><a href="#">Responsive Design</a></li>
-                                                                <li><a href="#">Pixel Perfect Graphics</a></li>
-                                                            </ul>
-                                                            <ul className="col-sm-3">
-                                                                <li className="dropdown-header">Widget Haeder</li>
-                                                                <li><a href="#">Awesome Features</a></li>
-                                                                <li><a href="#">Clean Interface</a></li>
-                                                                <li><a href="#">Available Possibilities</a></li>
-                                                                <li><a href="#">Responsive Design</a></li>
-                                                                <li><a href="#">Pixel Perfect Graphics</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
+                                                    <CKEditor/>
                                                 </ul>
                                             </li>
                                         </ul>

@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import images from './images1.jpg'
 import './App.css'
 import { axiosPublic } from './configs/axios'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './pages/Login';
 import Header from './pages/home/Header'
 import Footer from './pages/home/Footer';
+import Body from './pages/home/Body'
+import Register from './component/Register'
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +37,8 @@ class App extends Component {
           <div className="uc-mobile-menu-pusher">
             <div className="content-wrapper">
               <Header />
-
+               <Body/>
+               
               <Footer/>
 
             </div>

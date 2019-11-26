@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Button from '../component/Button'
 import { connect } from 'react-redux'
 import { axiosPublic } from '../configs/axios'
@@ -11,7 +11,7 @@ class LoginPage extends Component {
 			email: '',
 			password: '',
 		}
-		
+
 	}
 
 	onGetValue = event => {
@@ -39,7 +39,9 @@ class LoginPage extends Component {
 		const { email, password } = this.state
 
 		return (
-			<div className = 'loginBar'>
+
+
+			<div className='loginBar'>
 				<form onSubmit={this.onLogin}>
 					<input
 						type="text"
@@ -57,14 +59,20 @@ class LoginPage extends Component {
 						onChange={this.onGetValue}
 
 					/>
-				<Button
-				title='Login'
-					type='submit'
-					onSubmit={this.onLogin}
-				/>
-				
-		<p>{this.props.user.username}</p>
-		
+					<Button
+						title='Login'
+						type='submit'
+						onSubmit={this.onLogin}
+					/>
+
+
+
+
+
+					<p>{this.props.user.username}</p>
+
+
+
 
 
 				</form>
@@ -76,10 +84,10 @@ class LoginPage extends Component {
 
 let setCookie = (cname, cvalue, exdays) => {
 	console.log(cvalue)
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  var expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	var expires = "expires=" + d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 const mapStateToProps = rootReducerState => {
@@ -92,27 +100,27 @@ const mapDispatchToProps = (dispatch, props) => {
 	return {
 		onLogin: (data) => {
 			axiosPublic({
-				method :'POST',
+				method: 'POST',
 				url: "/api/login",
-				data : {
+				data: {
 					email: data.email,
 					password: data.password
 				}
-			})
-			.then(data => {
-				if (data.data.token) {
-
-					// window.location.href = "http://localhost:3000";
-					setCookie("token", data.data.token, 1)
-					
-					dispatch({
-						type: "LOGIN",
-						data: data.data
-					});
-
-				}
 
 			})
+				.then(data => {
+					if (data.data.token) {
+
+						// window.location.href = "http://localhost:3000";
+						setCookie("token", data.data.token, 1)
+						dispatch({
+							type: "LOGIN",
+							data: data.data
+						});
+
+					}
+
+				})
 		}
 	}
 }
