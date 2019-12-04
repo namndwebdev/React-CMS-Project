@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Button from '../component/Button'
 import { connect } from 'react-redux'
 import { axiosPublic } from '../configs/axios'
@@ -40,7 +40,6 @@ class LoginPage extends Component {
 
 		return (
 
-
 			<div className='loginBar'>
 				<form onSubmit={this.onLogin}>
 					<input
@@ -69,7 +68,7 @@ class LoginPage extends Component {
 
 
 
-					<p>{this.props.user.username}</p>
+					<h6 style={{ textTransform: 'capitalize'} }>{this.props.user.username}</h6>
 
 
 
@@ -83,7 +82,7 @@ class LoginPage extends Component {
 }
 
 let setCookie = (cname, cvalue, exdays) => {
-	console.log(cvalue)
+
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
 	var expires = "expires=" + d.toUTCString();

@@ -11,7 +11,7 @@ var loginReducer = (state = defaultState, action)=>{
             state.username = action.data.user.username;
             state.token = action.data.token
         
-            console.log(state)
+            // console.log(state)
         return { ...state } ;
 
         default: return state
